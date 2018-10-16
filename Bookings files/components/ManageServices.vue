@@ -155,7 +155,7 @@
         },
         methods: {
             getServices() {
-                this.$http.get('/services/all/').then(
+                axios.get('/services/all/').then(
                     (response) => {
                         this.services = response.body;
                     },
@@ -167,7 +167,7 @@
             renameService() {
                 if (!this.rename.serviceid) return;
 
-                this.$http.patch('/services/rename/' + this.rename.serviceid, {description: this.rename.description}).then(
+                axios.post('/services/rename/' + this.rename.serviceid, {description: this.rename.description}).then(
                     (response) => {
                         this.rename.description = '';
                         this.serviceRenameSuccess = true;
@@ -179,7 +179,7 @@
                 );
             },
             createService() {
-                this.$http.post('/services/create/', {description: this.create.description}).then(
+                axios.post('/services/create/', {description: this.create.description}).then(
                     (response) => {
                         this.create.description = '';
                         this.serviceCreateSuccess = true;
@@ -191,7 +191,7 @@
                 );
             },
             deleteService() {
-                this.$http.delete('/services/delete/' + this.deleteServiceId).then(
+                axios.delete('/services/delete/' + this.deleteServiceId).then(
                     (response) => {
                         this.deleteServiceId = null;
                         this.serviceDeleteSuccess = true;
