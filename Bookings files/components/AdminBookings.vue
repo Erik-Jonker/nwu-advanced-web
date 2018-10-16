@@ -103,9 +103,9 @@
         },
         methods:{
             getBookings() {
-                this.$http.get('/bookings/all').then(
+                axios.get('/bookings/all').then(
                     (response) => {
-                        this.bookings = response.body;
+                        this.bookings = response.data;
                     },
                     (error) => {
 
@@ -114,7 +114,7 @@
             },
             setBookingStatus(status, bookingid)
             {
-                this.$http.patch('/bookings/status/'+bookingid,{status:status}).then(
+                axios.patch('/bookings/status/'+bookingid,{status:status}).then(
                     (response)=>{
                         this.getBookings(); //refresh bookings to update status and to check for new bookings
                     },
