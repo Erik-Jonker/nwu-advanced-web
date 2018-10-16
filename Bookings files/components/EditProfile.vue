@@ -77,7 +77,7 @@
                     (response)=>{
 
                         //Apply the updated changes to current user
-                        this.user=response.body;
+                        this.user=response.data;
 
                         //Show the success message
                         this.alert.success = true;
