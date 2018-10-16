@@ -145,9 +145,9 @@
         props: ['prop_user'],
         methods: {
             getBookings() {
-                this.$http.get('/bookings/get/user/' + this.prop_user.userid).then(
+                axios.get('/bookings/get/user/' + this.prop_user.userid).then(
                     (response) => {
-                        this.user = response.body;
+                        this.user = response.data;
                     },
                     (error) => {
 
@@ -155,9 +155,9 @@
                 );
             },
             getServices() {
-                this.$http.get('/services/all/').then(
+                axios.get('/services/all/').then(
                     (response) => {
-                        this.services = response.body;
+                        this.services = response.data;
                     },
                     (error) => {
 
@@ -165,7 +165,7 @@
                 );
             },
             createBooking() {
-                this.$http.post('/bookings/create', this.booking).then(
+                axios.post('/bookings/create', this.booking).then(
                     (response) => {
                         this.bookingCreateSuccess=true;
                         this.getBookings(); //refresh bookings
@@ -179,7 +179,7 @@
             deleteBooking() {
                 if (!this.deleteBookingId) return;
 
-                this.$http.delete('/bookings/delete/' + this.deleteBookingId).then(
+                axios.post('/bookings/delete/' + this.deleteBookingId).then(
                     (response) => {
                         this.deleteBookingId = null; //reset the select booking
                         this.bookingDeleteSuccess = true;
