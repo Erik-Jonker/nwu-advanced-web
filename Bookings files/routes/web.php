@@ -33,19 +33,19 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/bookings/get/user/{user}', 'BookingController@getUserBookings');
     Route::get('/bookings/all', 'BookingController@getAllBookings');
     Route::post('/bookings/create', 'BookingController@createBooking');
-    Route::delete('/bookings/delete/{booking}', 'BookingController@deleteBooking');
+    Route::post('/bookings/delete/{booking}', 'BookingController@deleteBooking');
     Route::patch('/bookings/status/{booking}', 'BookingController@setBookingStatus');
 
     //Services
     Route::get('services', 'ServiceController@getServicesPage');
     Route::get('services/all', 'ServiceController@getAllServices');
     Route::post('services/create', 'ServiceController@createService');
-    Route::patch('services/rename/{service}', 'ServiceController@renameService');
-    Route::delete('services/delete/{service}', 'ServiceController@deleteService');
+    Route::post('services/rename/{service}', 'ServiceController@renameService');
+    Route::post('services/delete/{service}', 'ServiceController@deleteService');
 
     //User Profiles
     Route::get('/profiles', 'UserController@getProfilePage');
     Route::get('/profiles/all', 'UserController@getAllProfiles');
-    Route::patch('/profiles/update/{user}', 'UserController@updateProfile');
+    Route::post('/profiles/update/{user}', 'UserController@updateProfile');
 
 });
