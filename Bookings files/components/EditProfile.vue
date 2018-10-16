@@ -69,12 +69,11 @@
 
                 //If the original user is the same as the 'edited' user, it means nothing changed
                 if(this.prop_user === this.user) {
-                  this.alert
                   return;
                 }
 
                 //Send new details to server to update
-                this.$http.patch('/profiles/update/'+this.user.userid, this.user).then(
+                axios.post('/profiles/update/'+this.user.userid, this.user).then(
                     (response)=>{
 
                         //Apply the updated changes to current user
