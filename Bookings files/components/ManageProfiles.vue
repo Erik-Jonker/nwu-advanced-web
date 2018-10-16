@@ -97,9 +97,9 @@
         methods:{
             getAllProfiles()
             {
-                this.$http.get('/profiles/all').then(
+                axios.get('/profiles/all').then(
                     (response)=>{
-                        this.profiles = response.body;
+                        this.profiles = response.data;
                     },
                     (error)=>{
 
@@ -110,9 +110,9 @@
             {
                 if (this.profiles.length < 1 || index==null) return;
 
-                this.$http.patch('/profiles/update/'+this.profiles[index].userid, this.profiles[index]).then(
+                axios.post('/profiles/update/'+this.profiles[index].userid, this.profiles[index]).then(
                     (response)=>{
-                        this.profiles[index]=response.body;
+                        this.profiles[index]=response.data;
                         this.alert.success[index] = true;
                         setTimeout(()=>{
                           this.alert.success[index] = false;
