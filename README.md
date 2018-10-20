@@ -1,6 +1,6 @@
 # Advanced web systems
 
-If you are struggling with the <admin-bookings> component, look in the console (right click - inspect). If it gives an error containing "vue moment" it means that the moment package is not installed
+If you are struggling with the "admin-bookings" component, look in the console (right click - inspect). If it gives an error containing "vue moment" it means that the moment package is not installed
   
 https://www.npmjs.com/package/vue-moment
   
