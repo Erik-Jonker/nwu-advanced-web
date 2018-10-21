@@ -31,6 +31,9 @@ class UserController extends Controller
 
         if($request->gender)
             $user->gender = $request->gender;
+        
+        if($request->role)
+            $user->role = $request->role;
 
         if($request->updatePassword)
             $user->password = bcrypt($request->updatePassword);//encrypt password
