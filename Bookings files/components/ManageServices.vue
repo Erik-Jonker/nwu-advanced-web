@@ -157,7 +157,7 @@
             getServices() {
                 axios.get('/services/all/').then(
                     (response) => {
-                        this.services = response.body;
+                        this.services = response.data;
                     },
                     (error) => {
                       //NB catch the error, display a popup saying an error occured?
@@ -191,7 +191,7 @@
                 );
             },
             deleteService() {
-                axios.delete('/services/delete/' + this.deleteServiceId).then(
+                axios.post('/services/delete/' + this.deleteServiceId).then(
                     (response) => {
                         this.deleteServiceId = null;
                         this.serviceDeleteSuccess = true;
