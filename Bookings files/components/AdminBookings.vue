@@ -114,7 +114,7 @@
             },
             setBookingStatus(status, bookingid)
             {
-                axios.patch('/bookings/status/'+bookingid,{status:status}).then(
+                axios.post('/bookings/status/'+bookingid,{status:status}).then(
                     (response)=>{
                         this.getBookings(); //refresh bookings to update status and to check for new bookings
                     },
