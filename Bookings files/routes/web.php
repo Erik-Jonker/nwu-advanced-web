@@ -34,7 +34,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/bookings/all', 'BookingController@getAllBookings');
     Route::post('/bookings/create', 'BookingController@createBooking');
     Route::post('/bookings/delete/{booking}', 'BookingController@deleteBooking');
-    Route::patch('/bookings/status/{booking}', 'BookingController@setBookingStatus');
+    Route::post('/bookings/status/{booking}', 'BookingController@setBookingStatus');
 
     //Services
     Route::get('services', 'ServiceController@getServicesPage');
